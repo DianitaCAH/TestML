@@ -4,6 +4,7 @@ public class ProductViewModel {
 
     public int id;
     public int price;
+    public String searcher;
     public String name;
     public String description;
     public String imgUrl;
@@ -13,6 +14,14 @@ public class ProductViewModel {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public String getSearcher() {
+        return searcher;
+    }
+
+    public void setSearcher(String searcher) {
+        this.searcher = searcher;
     }
 
     public int getId() {

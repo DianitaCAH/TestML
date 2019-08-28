@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">TestML</string>
 
+    //LABELS
+    <string name="edit_search_hint">Buscar Productos</string>
+
     //API CALLS
-    <string name="url_get_all_items">https://api.mercadolibre.com/sites/MLA/search?q=</string>
+    <string name="url_search_items">https://api.mercadolibre.com/sites/MLA/search?q=</string>
 </resources>
