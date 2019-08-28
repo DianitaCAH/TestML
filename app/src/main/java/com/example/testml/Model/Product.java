@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 public class Product {
 
     public int id;
+    public int price;
     public String name;
     public String descripcion;
     public String imgUrl;
@@ -18,6 +19,14 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getName() {

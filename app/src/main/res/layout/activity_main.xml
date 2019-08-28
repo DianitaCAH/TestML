@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ListView
-        android:id="@+id/productList"
+    <data>
+        <variable
+            name="listModel"
+            type="com.example.testml.Presenter.ProductPresenter" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/productList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:text="Getn info"
+            android:onClick="@{(v)->listModel.getAllProducts()}"/>
+
+    </LinearLayout>
+</layout>
