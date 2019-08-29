@@ -6,8 +6,12 @@
 
     <data>
         <variable
-            name="listModel"
-            type="com.example.testml.Presenter.ProductPresenter" />
+            name="searchClick"
+            type="com.example.testml.presenter.ProductPresenter" />
+
+        <variable
+            name="producViewModel"
+            type="com.example.testml.viewmodel.ProductViewModel" />
 
     </data>
 
@@ -17,12 +21,12 @@
         android:orientation="vertical"
         android:gravity="center"
         tools:context=".MainActivity">
-
+i
         <EditText
             android:id="@+id/Searcher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={listModel.searcher}"
+            android:text="@={producViewModel.searcher}"
             android:hint="@string/edit_search_hint"
             android:textColor="@color/dark_blue"/>
 
@@ -33,7 +37,7 @@
             android:textColor="@color/light_yellow"
             android:textStyle="bold"
             android:text="Getn info"
-            android:onClick="@{(v)->listModel.getAllProducts()}"/>
+            android:onClick="@{(v)->searchClick.searchProducts()}"/>
 
         <ListView
             android:id="@+id/productList"

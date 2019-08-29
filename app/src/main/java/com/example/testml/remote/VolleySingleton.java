@@ -1,4 +1,4 @@
-package com.example.testml.Remote;
+package com.example.testml.remote;
 
 import android.content.Context;
 

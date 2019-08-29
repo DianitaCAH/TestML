@@ -1,4 +1,4 @@
-package com.example.testml.Presenter;
+package com.example.testml.presenter;
 
 public interface ProductPresenter {
 

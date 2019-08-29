@@ -1,4 +1,4 @@
-package com.example.testml.Model;
+package com.example.testml.model;
 
 import android.graphics.Bitmap;
 

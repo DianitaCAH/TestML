@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data class = "ListViewBinding">
-        
+    <data class="ListRowBinging">
         <variable
             name="newmodel"
-            type="com.example.testml.ViewModel.ProductViewModel" />
-
+            type="com.example.testml.viewmodel.ProductViewModel" />
     </data>
 
 
     <LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
@@ -35,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{newmodel.description}"/>
+                android:text="@{newmodel.currency + newmodel.price}"/>
         </LinearLayout>
 
     <LinearLayout

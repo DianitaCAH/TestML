@@ -1,20 +1,35 @@
-package com.example.testml.ViewModel;
+package com.example.testml.viewmodel;
 
-public class ProductViewModel {
+import androidx.databinding.BaseObservable;
+
+import com.example.testml.R;
+
+public class ProductViewModel extends BaseObservable {
 
     public int id;
     public int price;
     public String searcher;
     public String name;
-    public String description;
+    public String currency;
     public String imgUrl;
 
-    public ProductViewModel(int id, String name, String description, int price) {
+    //public MutableLiveData<String> search;
+
+
+    public ProductViewModel(int id, String name, String currency, int price) {
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.currency = currency;
         this.price = price;
     }
+
+    /*public MutableLiveData getSearch(){
+        if (search == null) {
+            search = new MutableLiveData<>();
+        }
+
+        return search;
+    }*/
 
     public String getSearcher() {
         return searcher;
@@ -22,6 +37,7 @@ public class ProductViewModel {
 
     public void setSearcher(String searcher) {
         this.searcher = searcher;
+        notifyPropertyChanged(R.id.Searcher);
     }
 
     public int getId() {
@@ -40,12 +56,12 @@ public class ProductViewModel {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public String getImgUrl() {

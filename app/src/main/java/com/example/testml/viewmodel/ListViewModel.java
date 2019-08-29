@@ -1,6 +1,6 @@
-package com.example.testml.ViewModel;
+package com.example.testml.viewmodel;
 
-import com.example.testml.Model.Product;
+import com.example.testml.model.Product;
 
 public class ListViewModel {
 
