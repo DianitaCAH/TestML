@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ProductDetailActivity">
+
+    <data>
+        <variable
+            name="request"
+            type="com.example.testml.presenter.ProductPresenter" />
+        <variable
+            name="product"
+            type="com.example.testml.viewmodel.ProductViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{product.name}"
+            android:layout_below="@+id/relativeImage"/>
+
+        <TextView
+            android:id="@+id/labelproductID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productName"
+            android:layout_marginRight="300dp"
+            android:padding="10dp"
+            android:text="@string/label_id" />
+
+        <TextView
+            android:id="@+id/productID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{product.id}"
+            android:padding="10dp"
+            android:layout_below="@+id/productName"
+            android:layout_alignRight="@+id/labelproductID"/>
+
+        <TextView
+            android:id="@+id/labelproductCuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_quantity"
+            android:padding="10dp"
+            android:layout_below="@+id/productID"/>
+
+        <TextView
+            android:id="@+id/productQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{product.quantity}"
+            android:layout_below="@+id/productID"
+            android:layout_alignRight="@+id/labelproductCuantity"/>
+
+        <TextView
+            android:id="@+id/labelproductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_price"
+            android:padding="10dp"
+            android:layout_below="@+id/productQuantity"/>
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{product.currency + product.price}"
+            android:layout_below="@+id/productQuantity"
+            android:layout_alignRight="@+id/labelproductPrice"/>
+
+    </RelativeLayout>
+
+
+</layout>

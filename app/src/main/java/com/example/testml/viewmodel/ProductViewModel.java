@@ -8,11 +8,12 @@ import com.example.testml.model.Product;
 public class ProductViewModel extends BaseObservable {
 
     public String id;
-    public int price;
+    public String price;
     public String searcher;
     public String name;
     public String currency;
     public String imgUrl;
+    public String quantity;
 
     //public MutableLiveData<String> search;
 
@@ -25,6 +26,7 @@ public class ProductViewModel extends BaseObservable {
         this.name = product.name;
         this.currency = product.currency;
         this.price = product.price;
+        this.quantity = product.quantity;
     }
 
     public String getSearcher() {
@@ -68,11 +70,19 @@ public class ProductViewModel extends BaseObservable {
         this.imgUrl = imgUrl;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }

@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private ArrayList <ProductViewModel> productList;
     private ActivityRecyclerBinding activityRecyclerBinding;
@@ -72,15 +73,14 @@ public class MainActivity extends AppCompatActivity {
                                         productViewModel.setName(product.getString("title"));
                                         productViewModel.setImgUrl(product.getString("thumbnail"));
                                         productViewModel.setCurrency(product.getString("currency_id"));
-                                        productViewModel.setPrice(product.getInt("price"));
+                                        productViewModel.setPrice(product.getString("price"));
 
                                         productList.add(productViewModel);
                                     }
-                                    adapter = new CustomAdapter(productList);
+                                    adapter = new CustomAdapter(MainActivity.this, productList);
                                     recyclerView.setAdapter(adapter);
                                     if (productList.size() > 0) {
                                         activityRecyclerBinding.Recycler.setVisibility(View.VISIBLE);
-
                                     } else {
                                         Toast.makeText(MainActivity.this, getResources().getString(R.string.msg_no_search_results), Toast.LENGTH_LONG).show();
                                     }
@@ -103,11 +103,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void getProduct() {
+            public void itemClick() {}
 
-            }
+            @Override
+            public void getProduct() {}
+
         });
     }
-
 
 }

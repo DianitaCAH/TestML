@@ -5,11 +5,12 @@ import android.graphics.Bitmap;
 public class Product {
 
     public String id;
-    public int price;
+    public String price;
     public String name;
     public String descripcion;
     public String imgUrl;
     public String currency;
+    public String quantity;
     public Bitmap img;
 
     public Product() {}
@@ -22,11 +23,11 @@ public class Product {
         this.id = id;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -68,5 +69,13 @@ public class Product {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 }

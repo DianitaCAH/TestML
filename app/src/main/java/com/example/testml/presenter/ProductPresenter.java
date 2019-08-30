@@ -4,5 +4,8 @@ public interface ProductPresenter {
 
     public void searchProducts();
 
+    void itemClick();
+
     public void getProduct();
+
 }
