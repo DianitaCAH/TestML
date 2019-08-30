@@ -9,6 +9,7 @@ public class Product {
     public String name;
     public String descripcion;
     public String imgUrl;
+    public String currency;
     public Bitmap img;
 
     public Product() {}
@@ -59,5 +60,13 @@ public class Product {
 
     public void setImg(Bitmap img) {
         this.img = img;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

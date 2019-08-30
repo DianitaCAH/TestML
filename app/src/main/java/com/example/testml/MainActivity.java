@@ -2,6 +2,8 @@ package com.example.testml;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -9,6 +11,7 @@ import android.widget.Toast;
 
 
 import com.example.testml.adapter.CustomAdapter;
+import com.example.testml.model.Product;
 import com.example.testml.remote.Data.DataManager;
 import com.example.testml.presenter.ProductPresenter;
 import com.example.testml.viewmodel.ProductViewModel;
@@ -24,15 +27,27 @@ public class MainActivity extends AppCompatActivity {
     private ProductViewModel productViewModel;
     private CustomAdapter adapter;
     private DataManager dataManager;
+//------------------------------------------
+    private RecyclerView recyclerView;
+    private ArrayList<Product> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recycler);
 
         //Binding layout to activity
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        activityMainBinding.setSearchClick(new ProductPresenter() {
+        //activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_recycler);
+
+        recyclerView = findViewById(R.id.Recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this ));
+
+        productList = new ArrayList<>();
+        adapter = new CustomAdapter(productList);
+        recyclerView.setAdapter(adapter);
+        setData();
+
+        /*activityMainBinding.setSearchClick(new ProductPresenter() {
             @Override
             public void searchProducts() {
                 toastData(activityMainBinding.getProducViewModel().getSearcher());
@@ -43,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
         //dataManager = new DataManager(this);
 
        // productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
@@ -95,6 +110,32 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });*/
+    }
+
+    void setData() {
+        ProductViewModel prod1 = new ProductViewModel();
+        prod1.setName("111111");
+        prod1.setCurrency("USD");
+        prod1.setImgUrl("wwwasbdajsbd");
+        productList.add(prod1);
+
+        ProductViewModel prod5 = new ProductViewModel();
+        prod5.setName("222222");
+        prod5.setCurrency("USD");
+        prod5.setImgUrl("wwwasbdajsbd");
+        productList.add(prod5);
+
+        ProductViewModel prod2 = new ProductViewModel();
+        prod2.setName("33333");
+        prod2.setCurrency("USD");
+        prod2.setImgUrl("wwwasbdajsbd");
+        productList.add(prod2);
+
+        ProductViewModel prod3 = new ProductViewModel();
+        prod3.setName("4444");
+        prod3.setCurrency("USD");
+        prod3.setImgUrl("wwwasbdajsbd");
+        productList.add(prod3);
     }
 
     void toastData(String data){

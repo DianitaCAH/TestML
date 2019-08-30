@@ -3,6 +3,7 @@ package com.example.testml.viewmodel;
 import androidx.databinding.BaseObservable;
 
 import com.example.testml.R;
+import com.example.testml.model.Product;
 
 public class ProductViewModel extends BaseObservable {
 
@@ -16,11 +17,14 @@ public class ProductViewModel extends BaseObservable {
     //public MutableLiveData<String> search;
 
 
-    public ProductViewModel(int id, String name, String currency, int price) {
-        this.id = id;
-        this.name = name;
-        this.currency = currency;
-        this.price = price;
+    public ProductViewModel() {
+    }
+
+    public ProductViewModel(Product product) {
+        this.id = product.id;
+        this.name = product.name;
+        this.currency = product.currency;
+        this.price = product.price;
     }
 
     /*public MutableLiveData getSearch(){

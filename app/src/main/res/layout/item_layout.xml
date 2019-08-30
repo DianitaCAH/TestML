@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data class="ListRowBinging">
+    <data class="ProductBinding">
         <variable
             name="newmodel"
             type="com.example.testml.viewmodel.ProductViewModel" />
@@ -10,9 +10,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/productImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/ic_launcher_round"/>
@@ -23,18 +24,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/ProductName"
+                android:id="@+id/productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{newmodel.title}"/>
+                android:text="@{newmodel.name}"/>
 
-            <TextView
-                android:id="@+id/ProductDesc"
+            <!--<TextView
+                android:id="@+id/productDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{newmodel.currency + newmodel.price}"/>
+                android:text="@{newmodel.currency}"/>-->
         </LinearLayout>
 
     <LinearLayout
@@ -43,11 +44,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/ProductPrice"
+            android:id="@+id/productPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@{newmodel.price}"/>
+            android:text="@{newmodel.currency + newmodel.price}"/>
     </LinearLayout>
 
     </LinearLayout>
