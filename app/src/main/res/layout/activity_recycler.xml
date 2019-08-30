@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<layout>
+
+    <data>
+        <variable
+            name="searcher"
+            type="com.example.testml.viewmodel.ProductViewModel" />
+
+        <variable
+            name="searchClick"
+            type="com.example.testml.presenter.ProductPresenter" />
+
+    </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
@@ -7,13 +20,40 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/Searcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={searcher.searcher}"
+            android:hint="@string/edit_search_hint"
+            android:textColor="@color/dark_blue"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            android:textColor="@color/light_yellow"
+            android:layout_below="@+id/Searcher"
+            android:textStyle="bold"
+            android:text="Getn info"
+            android:onClick="@{(v)->searchClick.searchProducts()}"/>
+    </RelativeLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical">
+            android:scrollbars="vertical"
+            android:visibility="gone">
 
 
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
+
+</layout>

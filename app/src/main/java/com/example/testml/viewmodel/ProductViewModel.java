@@ -7,7 +7,7 @@ import com.example.testml.model.Product;
 
 public class ProductViewModel extends BaseObservable {
 
-    public int id;
+    public String id;
     public int price;
     public String searcher;
     public String name;
@@ -27,14 +27,6 @@ public class ProductViewModel extends BaseObservable {
         this.price = product.price;
     }
 
-    /*public MutableLiveData getSearch(){
-        if (search == null) {
-            search = new MutableLiveData<>();
-        }
-
-        return search;
-    }*/
-
     public String getSearcher() {
         return searcher;
     }
@@ -44,11 +36,11 @@ public class ProductViewModel extends BaseObservable {
         notifyPropertyChanged(R.id.Searcher);
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

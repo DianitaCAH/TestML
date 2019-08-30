@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">TestML</string>
 
+    //MESSAGES
+    <string name="msg_no_search_results">No hay resultados de la busqueda, intenta de nuevo.</string>
+    <string name="msg_empty_field">Por favor ingrese algun valor para la busqueda.</string>
+
     //LABELS
     <string name="edit_search_hint">Buscar Productos</string>
 

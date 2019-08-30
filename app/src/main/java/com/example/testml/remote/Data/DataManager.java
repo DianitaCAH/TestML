@@ -23,16 +23,14 @@ public class DataManager {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest((url), new JSONObject(),new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.e("RESPONSE", response.toString());
-                toastData(response.toString());
-                //dataValues.setJsonDataResponse(response);
+                Log.e("DataManager RESPONSE", response.toString());
+                dataValues.setJsonDataResponse(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("ERROR", error.toString());
-                toastData(error.toString());
-                //dataValues.setVolleyError(error);
+                Log.e("DataManager ERROR", error.toString());
+                dataValues.setVolleyError(error);
             }
         }
 
@@ -40,9 +38,6 @@ public class DataManager {
         VolleySingleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
     }
 
-    void toastData(String data){
-        Toast.makeText(this.context, data, Toast.LENGTH_LONG).show();
-    }
 
 
 }
