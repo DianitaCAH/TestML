@@ -89,7 +89,6 @@
             android:text="@{product.currency + product.price}"
             android:layout_below="@+id/productQuantity"
             android:layout_alignRight="@+id/labelproductPrice"/>
-
     </RelativeLayout>
 
 

@@ -2,8 +2,10 @@ package com.example.testml;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.MutableLiveData;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import com.android.volley.VolleyError;
@@ -21,6 +23,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     private DataManager dataManager;
     private String productId;
     private ActivityProductDetailBinding productDetailBinding;
+
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +45,18 @@ public class ProductDetailActivity extends AppCompatActivity {
 
             @Override
             public void getProduct() {
-                String urlRequest = getString(R.string.url_search_items) + productId;
+                String urlRequest = getString(R.string.url_get_item) + productId;
                 Log.e("URL REQUEST", urlRequest);
-                dataManager.sendRequest(urlRequest, new DataValues() {
+                dataManager.sendGETRequest(urlRequest, new DataValues() {
                     @Override
                     public void setJsonDataResponse(JSONObject response) {
                         try {
                             Log.e("setRequest", response.toString());
-                            ProductViewModel product = new ProductViewModel();
-                            product.setId(response.getString("id"));
-                            product.setName(response.getString("title"));
-                            product.setCurrency(response.getString("currency"));
-                            product.setPrice(response.getString("price"));
-                            product.setQuantity(response.getString("available_quantity"));
-                            productDetailBinding.setProduct(product);
+                            productDetailBinding.productID.setText(response.getString("id"));
+                            productDetailBinding.productName.setText(response.getString("title"));
+                            productDetailBinding.productPrice.setText(response.getString("currency") + response.getString("price"));
+                            productDetailBinding.productQuantity.setText(response.getString("available_quantity"));
+
                         } catch (JSONException e) {
                             Log.e("JsonError", e.getMessage().toString());
                         }
@@ -67,8 +69,21 @@ public class ProductDetailActivity extends AppCompatActivity {
                 });
             }
         });
+
+        callApiProduct();
     }
 
+    public void callApiProduct() {
+        Log.e("callApiProduct", "sdfghjk");
+        new Thread(new Task()).start();
+    }
 
+    class Task implements Runnable {
+        @Override
+        public void run() {
+            Log.e("Task", "RUN");
+            productDetailBinding.getRequest().getProduct();
 
+        }
+    }
 }
