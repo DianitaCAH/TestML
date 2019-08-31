@@ -69,10 +69,18 @@ public class ProductDetailActivity extends AppCompatActivity {
                     public void setJsonDataResponse(JSONObject response) {
                         try {
                             Log.e("setRequest", response.toString());
-                            productDetailBinding.productID.setText(response.getString("id"));
+                            ProductViewModel productVM = new ProductViewModel();
+                            productVM.setId(response.getString("id"));
+                            productVM.setName(response.getString("title"));
+                            productVM.setCurrency(response.getString("currency_id"));
+                            productVM.setPrice(response.getString("price"));
+                            productVM.setQuantity(response.getString("available_quantity"));
+                            productDetailBinding.setProduct(productVM);
+
+                            /*productDetailBinding.productID.setText(response.getString("id"));
                             productDetailBinding.productName.setText(response.getString("title"));
                             productDetailBinding.productPrice.setText(response.getString("currency_id") + response.getString("price"));
-                            productDetailBinding.productQuantity.setText(response.getString("available_quantity"));
+                            productDetailBinding.productQuantity.setText(response.getString("available_quantity"));*/
                             new DownloadBackground(productDetailBinding.relativeImage,
                                     productDetailBinding.getRoot().getRootView(), response.getString("thumbnail")).execute();
 

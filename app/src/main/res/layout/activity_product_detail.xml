@@ -49,7 +49,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/productName"
-            android:layout_marginRight="300dp"
             android:padding="10dp"
             android:text="@string/label_id" />
 
@@ -58,8 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{product.id}"
-            android:padding="10dp"
-            android:layout_below="@+id/productName"/>
+            android:layout_rowWeight="0"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/labelproductCuantity"
@@ -89,8 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="@{product.currency + product.price}"
-            android:layout_below="@+id/productQuantity"/>
+            android:text="@{product.currency + product.price}"/>
 
         </GridLayout>
 

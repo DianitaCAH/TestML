@@ -1,15 +1,18 @@
 package com.example.testml;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity  {
                     String urlRequest = getString(R.string.url_search_items) + productViewModel.getSearcher();
                     Log.e("URL REQUEST", urlRequest);
                     dataManager.sendRequest(urlRequest, new DataValues() {
+                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
                         @Override
                         public void setJsonDataResponse(JSONObject response) {
 
@@ -82,6 +86,9 @@ public class MainActivity extends AppCompatActivity  {
                                     recyclerView.setAdapter(adapter);
                                     if (productList.size() > 0) {
                                         activityRecyclerBinding.Recycler.setVisibility(View.VISIBLE);
+
+                                        RelativeLayout.LayoutParams layout =(RelativeLayout.LayoutParams) activityRecyclerBinding.RelativeSearcher.getLayoutParams();
+                                        layout.removeRule(RelativeLayout.CENTER_IN_PARENT);
                                     } else {
                                         Toast.makeText(MainActivity.this, getResources().getString(R.string.msg_no_search_results), Toast.LENGTH_LONG).show();
                                     }
