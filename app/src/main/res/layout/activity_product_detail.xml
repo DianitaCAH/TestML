@@ -19,14 +19,9 @@
         <RelativeLayout
             android:id="@+id/relativeImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@mipmap/ic_launcher_round" />
 
         </RelativeLayout>
 
@@ -34,9 +29,20 @@
             android:id="@+id/productName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="10dp"
             android:text="@{product.name}"
             android:layout_below="@+id/relativeImage"/>
+
+
+        <GridLayout
+            android:id="@+id/gridlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productName"
+            android:rowCount="3"
+            android:columnCount="2">
+
 
         <TextView
             android:id="@+id/labelproductID"
@@ -53,8 +59,7 @@
             android:layout_height="wrap_content"
             android:text="@{product.id}"
             android:padding="10dp"
-            android:layout_below="@+id/productName"
-            android:layout_alignRight="@+id/labelproductID"/>
+            android:layout_below="@+id/productName"/>
 
         <TextView
             android:id="@+id/labelproductCuantity"
@@ -70,16 +75,14 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@{product.quantity}"
-            android:layout_below="@+id/productID"
-            android:layout_alignRight="@+id/labelproductCuantity"/>
+            android:layout_below="@+id/productID"/>
 
         <TextView
             android:id="@+id/labelproductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_price"
-            android:padding="10dp"
-            android:layout_below="@+id/productQuantity"/>
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/productPrice"
@@ -87,8 +90,26 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@{product.currency + product.price}"
-            android:layout_below="@+id/productQuantity"
-            android:layout_alignRight="@+id/labelproductPrice"/>
+            android:layout_below="@+id/productQuantity"/>
+
+        </GridLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/gridlayout">
+
+        <TextView
+            android:id="@+id/productURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/dark_blue"
+            android:text="@string/label_link"/>
+        </RelativeLayout>
     </RelativeLayout>
 
 

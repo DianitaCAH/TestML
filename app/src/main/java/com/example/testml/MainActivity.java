@@ -69,13 +69,14 @@ public class MainActivity extends AppCompatActivity  {
                                 if (listProduct.length() > 0) {
                                     for (int i = 0; i < listProduct.length(); i++) {
                                         JSONObject product = listProduct.getJSONObject(i);
-                                        productViewModel.setId(product.getString("id"));
-                                        productViewModel.setName(product.getString("title"));
-                                        productViewModel.setImgUrl(product.getString("thumbnail"));
-                                        productViewModel.setCurrency(product.getString("currency_id"));
-                                        productViewModel.setPrice(product.getString("price"));
+                                        ProductViewModel productVM = new ProductViewModel();
+                                        productVM.setId(product.getString("id"));
+                                        productVM.setName(product.getString("title"));
+                                        productVM.setImgUrl(product.getString("thumbnail"));
+                                        productVM.setCurrency(product.getString("currency_id"));
+                                        productVM.setPrice(product.getString("price"));
 
-                                        productList.add(productViewModel);
+                                        productList.add(productVM);
                                     }
                                     adapter = new CustomAdapter(MainActivity.this, productList);
                                     recyclerView.setAdapter(adapter);

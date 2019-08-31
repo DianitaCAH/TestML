@@ -10,7 +10,7 @@
     <string name="label_price">Precio:</string>
     <string name="label_id">Identificador:</string>
     <string name="label_quantity">Cantidad disponible:</string>
-    <string name="label_category">Categoria del producto:</string>
+    <string name="label_link">Ver en website</string>
 
 
     //API CALLS
