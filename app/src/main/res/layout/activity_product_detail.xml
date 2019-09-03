@@ -16,14 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <ImageView
             android:id="@+id/relativeImage"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:gravity="center">
+            android:gravity="center"/>
 
-
-        </RelativeLayout>
 
         <TextView
             android:id="@+id/productName"

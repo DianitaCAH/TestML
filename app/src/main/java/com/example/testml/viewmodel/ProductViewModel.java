@@ -1,9 +1,13 @@
 package com.example.testml.viewmodel;
 
+import android.widget.ImageView;
+
 import androidx.databinding.BaseObservable;
+import androidx.databinding.BindingAdapter;
 
 import com.example.testml.R;
 import com.example.testml.model.Product;
+import com.squareup.picasso.Picasso;
 
 public class ProductViewModel extends BaseObservable {
 
@@ -85,4 +89,6 @@ public class ProductViewModel extends BaseObservable {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
+
+
 }
